@@ -7,7 +7,7 @@ Client::Client(int argc, char** argv)
 
     // Address is not specified
     if (argc != 2) {
-        throw("usage: %s server-name " + std::string(argv[0]));
+        throw("usage: server-name " + std::string(argv[0]));
     }
 
     startWSA();

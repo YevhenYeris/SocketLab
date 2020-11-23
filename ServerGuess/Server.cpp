@@ -194,7 +194,6 @@ std::string Server::getCommand(std::string str, Game& game, int& iResult)
     {
         if (str[3] == '(' && str[8] == ')')
         {
-            attempts = 1;
             game.setEntered(str.substr(4, 4));
             return game.getResult() + '.';
         }

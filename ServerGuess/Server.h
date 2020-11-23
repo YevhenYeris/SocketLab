@@ -40,8 +40,6 @@ private:
     char recvbuf[DEFAULT_BUFLEN];
     int recvbuflen = DEFAULT_BUFLEN;
 
-    int attempts = 0;
-
 	std::string getCommand(std::string str, Game& game, int& iResult);
 
     void startWSA();

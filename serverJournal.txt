@@ -1,34 +1,26 @@
-Recieve at Mon Nov 23 12:06:41 2020
-: TRY(2994)
-Send at Mon Nov 23 12:06:41 2020
-: Found: 1 Same: 0
-Recieve at Mon Nov 23 12:06:41 2020
-: TRY(5759)
-Send at Mon Nov 23 12:06:41 2020
-: Found: 2 Same: 1
-Recieve at Mon Nov 23 12:06:41 2020
-: TRY(8694)
-Send at Mon Nov 23 12:06:41 2020
-: Found: 0 Same: 0
-Recieve at Mon Nov 23 12:06:41 2020
-: TRY(1657)
-Send at Mon Nov 23 12:06:41 2020
+Recieve at Mon Nov 23 12:51:00 2020
+: TRY(3223)
+Send at Mon Nov 23 12:51:00 2020
 : Found: 2 Same: 0
-Recieve at Mon Nov 23 12:06:48 2020
-: TRY(4267)
-Send at Mon Nov 23 12:06:48 2020
+Recieve at Mon Nov 23 12:51:06 2020
+: TRY(4029)
+Send at Mon Nov 23 12:51:06 2020
 : Found: 1 Same: 0
-Recieve at Mon Nov 23 12:06:48 2020
-: TRY(8002)
-Send at Mon Nov 23 12:06:48 2020
-: Found: 1 Same: 0
-Recieve at Mon Nov 23 12:06:48 2020
-: TRY(1067)
-Send at Mon Nov 23 12:06:48 2020
-: Found: 1 Same: 0
-Recieve at Mon Nov 23 12:06:48 2020
-: TRY(4903)
-Send at Mon Nov 23 12:06:48 2020
-: Found: 1 Same: 0
-Recieve at Mon Nov 23 12:06:51 2020
-: TRY(4903)
+Recieve at Mon Nov 23 12:51:06 2020
+: TRY(8864)
+Send at Mon Nov 23 12:51:06 2020
+: Found: 2 Same: 1
+Recieve at Mon Nov 23 12:51:06 2020
+: TRY(1729)
+Send at Mon Nov 23 12:51:06 2020
+: Found: 2 Same: 0
+Recieve at Mon Nov 23 12:51:06 2020
+: TRY(4765)
+Send at Mon Nov 23 12:51:06 2020
+: Found: 0 Same: 0
+Recieve at Mon Nov 23 12:51:06 2020
+: TRY(7528)
+Send at Mon Nov 23 12:51:06 2020
+: Found: 2 Same: 0
+Recieve at Mon Nov 23 12:51:08 2020
+: TRY(7528)

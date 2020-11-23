@@ -5,17 +5,20 @@ Client::Client(int argc, char** argv)
     start = std::chrono::system_clock::now();
     of.open(journalPath);
 
+    // Address is not specified
     if (argc != 2) {
         throw("usage: %s server-name " + std::string(argv[0]));
     }
 
     startWSA();
 
+    // Initialize addrinfo
     ZeroMemory(&hints, sizeof(hints));
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
 
+    // Get the address of the server
     iResult = getaddrinfo(argv[1], DEFAULT_PORT, &hints, &result);
     if (iResult != 0) {
         WSACleanup();
@@ -27,6 +30,7 @@ Client::Client(int argc, char** argv)
 
 void Client::startWSA()
 {
+    //Initialize Winsock
     iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (iResult != 0) {
         throw("WSAStartup failed with error: " + std::to_string(iResult));
@@ -35,6 +39,7 @@ void Client::startWSA()
 
 void Client::connectSocket()
 {
+    // Try to connect to the address returned by getaddrinfo
     for (ptr = result; ptr != NULL; ptr = ptr->ai_next) {
 
         // Create a SOCKET for connecting to server
@@ -95,6 +100,7 @@ void Client::process()
 
 void Client::shut()
 {
+    // Shutdown the sending side of the client
     iResult = shutdown(ConnectSocket, SD_SEND);
     if (iResult == SOCKET_ERROR) {
         closesocket(ConnectSocket);
@@ -109,6 +115,7 @@ void Client::shut()
 void Client::sendAndRecv(std::string command)
 {
     sendLog(command);
+    // Send a request to the server
     iResult = send(ConnectSocket, command.c_str(), (int)strlen(command.c_str()), 0);
     if (iResult == SOCKET_ERROR) {
         closesocket(ConnectSocket);
@@ -116,6 +123,7 @@ void Client::sendAndRecv(std::string command)
         throw("send failed with error: " + std::to_string(WSAGetLastError()));
     }
 
+    // Recieve an answer from the server
     iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
     recvLog(std::string(recvbuf));
 
@@ -143,7 +151,7 @@ void Client::recvLog(std::string str)
     auto end = std::chrono::system_clock::now();
     std::time_t end_time = std::chrono::system_clock::to_time_t(end);
 
-    of << "Revieve at " << std::ctime(&end_time)  << ": " << message << std::endl;
+    of << "Recieve at " << std::ctime(&end_time)  << ": " << message << std::endl;
 }
 
 void Client::tryRand(int n)
@@ -191,7 +199,7 @@ std::string Client::parseCommand(std::string str, bool& finish)
     {
         finish = true;
     }
-    if (str.substr(0, 8) == "TRYRAND(")
+    if (str.substr(0, 8) == "TRYRAND(" && str[str.length() - 2] == ')')
     {
         if (str.find(".") != std::string::npos)
         {
